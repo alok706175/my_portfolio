@@ -51,6 +51,9 @@
     }
 
     .nav-links{
+        /* hamburger button problem soln start here */
+        display: none;
+        /* hamburger button problem soln end here */
         position:absolute;
         top:80px;
         left:-100%;
@@ -64,7 +67,7 @@
     }
 
     .nav-links.active{
-        left:0;
+        left:flex;
     }
 
     .hero-content h1{
