@@ -1,0 +1,113 @@
+/* Hero Image Floating */
+
+.hero-image img{
+
+    animation: floatImage 4s ease-in-out infinite;
+
+}
+
+@keyframes floatImage{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* Fade Up Animation */
+
+.fade-up{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:all 0.8s ease;
+
+}
+
+.fade-up.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* Skill Hover */
+
+.skill-card{
+
+    transition:all 0.3s ease;
+
+}
+
+.skill-card:hover{
+
+    transform:translateY(-8px) scale(1.03);
+
+    box-shadow:0 10px 25px rgba(56,189,248,0.3);
+
+}
+
+/* Project Hover */
+
+.project-card{
+
+    transition:all 0.3s ease;
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 10px 25px rgba(56,189,248,0.25);
+
+}
+
+/* Button Hover */
+
+.btn{
+
+    transition:all 0.3s ease;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* Section Title Animation */
+
+.section-title{
+
+    animation: titleGlow 2s infinite alternate;
+
+}
+
+@keyframes titleGlow{
+
+    from{
+
+        text-shadow:0 0 5px #38bdf8;
+
+    }
+
+    to{
+
+        text-shadow:0 0 20px #38bdf8;
+
+    }
+
+}
