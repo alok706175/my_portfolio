@@ -42,9 +42,15 @@ form.addEventListener("submit", async (e) => {
 
     const contact = document.getElementById("contact").value.trim();
 
+ 
     const message =
     document.getElementById("message").value ||
     "No message provided";
+
+    if (name.trim().length < 3) {
+        alert("Please enter a valid name.");
+    return;
+    }
 
     const emailPattern =
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
