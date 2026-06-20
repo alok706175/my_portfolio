@@ -1,4 +1,3 @@
-
 // ============================
 // MOBILE MENU
 // ============================
@@ -12,8 +11,6 @@ menuBtn.addEventListener("click", () => {
 });
 
 
-
-
 // ============================
 // EMAILJS INITIALIZATION
 // ============================
@@ -24,49 +21,80 @@ try {
 }
 
 
-
-
 // ============================
 // CONTACT FORM
 // ============================
 
 const form = document.getElementById("contactForm");
 
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const contactInput = document.getElementById("contact");
+
+// 1. Name Validation
+if (nameInput) {
+    nameInput.addEventListener("invalid", () => {
+        if (nameInput.value.trim() === '') nameInput.setCustomValidity('Please enter your name');
+    });
+    nameInput.addEventListener("input", () => {
+        if (nameInput.value.trim() === '') {
+            nameInput.setCustomValidity('Please enter your name');
+        } else if (nameInput.value.trim().length < 3) {
+            nameInput.setCustomValidity('Please enter a valid name (at least 3 characters)');
+        } else {
+            nameInput.setCustomValidity('');
+        }
+    });
+}
+
+// 2. Email Validation
+if (emailInput) {
+    emailInput.addEventListener("invalid", () => {
+        if (emailInput.value.trim() === '') emailInput.setCustomValidity('Please enter your email id');
+    });
+    emailInput.addEventListener("input", () => {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailInput.value.trim() === '') {
+            emailInput.setCustomValidity('Please enter your email id');
+        } else if (!emailPattern.test(emailInput.value)) {
+            emailInput.setCustomValidity('Please enter valid email id');
+        } else {
+            emailInput.setCustomValidity('');
+        }
+    });
+}
+
+// 3. Contact Number Validation
+if (contactInput) {
+    contactInput.addEventListener("invalid", () => {
+        if (contactInput.value.trim() === '') contactInput.setCustomValidity('Please enter your contact number');
+    });
+    contactInput.addEventListener("input", () => {
+        const phonePattern = /^[0-9]{10}$/;
+        if (contactInput.value.trim() === '') {
+            contactInput.setCustomValidity('Please enter your contact number');
+        } else if (!phonePattern.test(contactInput.value)) {
+            contactInput.setCustomValidity('Please enter valid contact number');
+        } else {
+            contactInput.setCustomValidity('');
+        }
+    });
+}
+
+
 form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    const name = document.getElementById("name").value;
-
-    const email = document.getElementById("email").value;
-
-    const contact = document.getElementById("contact").value.trim();
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const contact = contactInput.value.trim();
 
  
     const message =
     document.getElementById("message").value ||
     "No message provided";
 
-    if (name.trim().length < 3) {
-        alert("Please enter a valid name.");
-    return;
-    }
-
-    const emailPattern =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    const phonePattern =
-    /^[0-9]{10}$/;
-
-    if (!emailPattern.test(email)) {
-    alert("Please Enter a Valid E-mail ID.");
-    return;
-    }
-
-    if (!phonePattern.test(contact)) {
-    alert("Please Enter a Valid Contact Number.");
-    return;
-    }
 
     const templateParams = {
 
@@ -106,6 +134,11 @@ form.addEventListener("submit", async (e) => {
 
         form.reset();
 
+        nameInput.setCustomValidity('');
+        emailInput.setCustomValidity('');
+        contactInput.setCustomValidity('');
+        
+
     } catch (error) {
 
         console.error(error);
@@ -131,24 +164,22 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 });
 
 // ============================
-// HIDE SOCIALS ON SCROLL UP
+// HIDE SOCIALS BUTTON ON SCROLL DOWN & SHOW SOCIALS BUTTON ON SCROLL UP (SHOW ONLY AT TOP)
 // ============================
 
+
 const floatingSocials = document.querySelector(".floating-socials");
-let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", () => {
     const currentScrollY = window.scrollY;
 
-    if (currentScrollY > lastScrollY) {
-        // Scrolling DOWN — hide
-        floatingSocials.style.opacity = "0";
-        floatingSocials.style.pointerEvents = "none";
-    } else {
-        // Scrolling UP — show
+    // Agar scroll position 10px ya usse kam hai (yani user bilkul top par hai)
+    if (currentScrollY <= 10) { 
         floatingSocials.style.opacity = "1";
         floatingSocials.style.pointerEvents = "auto";
+    } else {
+        // Agar page thoda sa bhi niche scroll hua hai, to buttons chhupe rahenge
+        floatingSocials.style.opacity = "0";
+        floatingSocials.style.pointerEvents = "none";
     }
-
-    lastScrollY = currentScrollY;
 });
