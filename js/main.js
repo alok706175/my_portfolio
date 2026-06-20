@@ -1,9 +1,3 @@
-// ============================
-// EMAILJS INITIALIZATION
-// ============================
-
-emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-
 
 // ============================
 // MOBILE MENU
@@ -16,6 +10,20 @@ menuBtn.addEventListener("click", () => {
     navLinks.classList.toggle("active");
     menuBtn.textContent = navLinks.classList.contains("active") ? "✕" : "☰";
 });
+
+
+
+
+// ============================
+// EMAILJS INITIALIZATION
+// ============================
+try {
+    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+} catch (err) {
+    console.error("EmailJS failed to initialize:", err);
+}
+
+
 
 
 // ============================
