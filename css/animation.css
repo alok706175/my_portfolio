@@ -2,7 +2,9 @@
 
 .hero-image img{
 
-    animation: floatImage 4s ease-in-out infinite;
+    /* animation: floatImage 4s ease-in-out infinite; */
+    animation: none;
+
 
 }
 
