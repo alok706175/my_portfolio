@@ -277,64 +277,54 @@ nav{
 
 /* social media button start here */
 
-
-/* Floating Socials Container */
-
-
 .floating-socials {
-  position: fixed;
-  right: 20px; /* Distance from the right edge */
-  top: 50%;
-  transform: translateY(-50%); /* Centers it vertically */
-  display: flex;
-  flex-direction: column;
-  gap: 12px; /* Space between buttons */
-  z-index: 9999; /* Ensures it stays on top of other elements */
-  transition: opacity 0.4s ease;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
 }
 
 /* Base Button Style */
 .social-btn {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 20px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
 }
 
 /* Hover Effect */
 .social-btn:hover {
-  transform: scale(1.1) translateX(-3px);
+    transform: scale(1.1);
 }
 
 /* Brand Colors */
 .linkedin {
-  background-color: #0077b5;
+    background-color: #0077b5;
 }
 
 .github {
-  background-color: #24292e;
+    background-color: #24292e;
 }
 
 .instagram {
-  background-image: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background-image: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 
 .twitter-x {
-  background-color: #000000;
+    background-color: #000000;
 }
 
 .threads {
-  background-color: #000000;
-  border: 1px solid #333;
+    background-color: #000000;
+    border: 1px solid #333;
 }
-
 
 /* social media button end here */
 
