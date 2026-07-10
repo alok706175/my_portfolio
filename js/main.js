@@ -27,6 +27,8 @@ try {
 
 const form = document.getElementById("contactForm");
 
+const submitButton = form.querySelector('button[type="submit"]');
+
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const contactInput = document.getElementById("phone");
@@ -86,6 +88,9 @@ form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
     const contact = contactInput.value.trim();
@@ -114,19 +119,33 @@ form.addEventListener("submit", async (e) => {
 
         // Email to You
 
-        await emailjs.send(
-            EMAILJS_CONFIG.SERVICE_ID,
-            EMAILJS_CONFIG.TEMPLATE_TO_ME,
-            templateParams
-        );
+        // await emailjs.send(
+        //     EMAILJS_CONFIG.SERVICE_ID,
+        //     EMAILJS_CONFIG.TEMPLATE_TO_ME,
+        //     templateParams
+        // );
 
         // Auto Reply to Visitor
 
-        await emailjs.send(
-            EMAILJS_CONFIG.SERVICE_ID,
-            EMAILJS_CONFIG.TEMPLATE_TO_SENDER,
-            templateParams
-        );
+        // await emailjs.send(
+        //     EMAILJS_CONFIG.SERVICE_ID,
+        //     EMAILJS_CONFIG.TEMPLATE_TO_SENDER,
+        //     templateParams
+        // );
+
+        await Promise.all([
+            emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_TO_ME,
+                templateParams
+            ),
+
+            emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_TO_SENDER,
+                templateParams
+            )
+        ]);
 
         alert(
             "Thanks for contacting! Your message has been sent successfully."
@@ -137,6 +156,9 @@ form.addEventListener("submit", async (e) => {
         nameInput.setCustomValidity('');
         emailInput.setCustomValidity('');
         contactInput.setCustomValidity('');
+
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Message";
         
 
     } catch (error) {
@@ -146,6 +168,9 @@ form.addEventListener("submit", async (e) => {
         alert(
             "Failed to send message. Please try again later."
         );
+
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Message";
 
     }
 
