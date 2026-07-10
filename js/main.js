@@ -27,6 +27,12 @@ try {
 
 const form = document.getElementById("contactForm");
 
+const successPopup = document.getElementById("successPopup");
+const closePopup = document.getElementById("closePopup");
+
+const errorPopup = document.getElementById("errorPopup");
+const closeErrorPopup = document.getElementById("closeErrorPopup");
+
 const submitButton = form.querySelector('button[type="submit"]');
 
 const nameInput = document.getElementById("name");
@@ -88,17 +94,28 @@ form.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
+    if (!form.checkValidity()){
+        form.reportValidity();
+        return;
+    }
+
     submitButton.disabled = true;
     submitButton.textContent = "Sending...";
+
+    const waitMessageTimer = setTimeout(() => {
+        submitButton.textContent = "Please wait for a few seconds...";
+    }, 5000);
 
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
     const contact = contactInput.value.trim();
 
  
+    const messageInput = document.getElementById("message");
+
     const message =
-    document.getElementById("message").value ||
-    "No message provided";
+        messageInput.value.trim() ||
+        "No message provided";
 
 
     const templateParams = {
@@ -118,61 +135,66 @@ form.addEventListener("submit", async (e) => {
     try {
 
         // Email to You
+        await emailjs.send(
+            EMAILJS_CONFIG.SERVICE_ID,
+            EMAILJS_CONFIG.TEMPLATE_TO_ME,
+            templateParams
+        );
 
-        // await emailjs.send(
-        //     EMAILJS_CONFIG.SERVICE_ID,
-        //     EMAILJS_CONFIG.TEMPLATE_TO_ME,
-        //     templateParams
-        // );
+        // EmailJS rate limit ke liye thoda wait
+        await new Promise(resolve => setTimeout(resolve, 1100));
+
+        // Auto-reply ko alag handle karenge
+    try {
 
         // Auto Reply to Visitor
-
-        // await emailjs.send(
-        //     EMAILJS_CONFIG.SERVICE_ID,
-        //     EMAILJS_CONFIG.TEMPLATE_TO_SENDER,
-        //     templateParams
-        // );
-
-        await Promise.all([
-            emailjs.send(
-                EMAILJS_CONFIG.SERVICE_ID,
-                EMAILJS_CONFIG.TEMPLATE_TO_ME,
-                templateParams
-            ),
-
-            emailjs.send(
-                EMAILJS_CONFIG.SERVICE_ID,
-                EMAILJS_CONFIG.TEMPLATE_TO_SENDER,
-                templateParams
-            )
-        ]);
-
-        alert(
-            "Thanks for contacting! Your message has been sent successfully."
+        await emailjs.send(
+            EMAILJS_CONFIG.SERVICE_ID,
+            EMAILJS_CONFIG.TEMPLATE_TO_SENDER,
+            templateParams
         );
 
-        form.reset();
+    } catch (autoReplyError) {
 
-        nameInput.setCustomValidity('');
-        emailInput.setCustomValidity('');
-        contactInput.setCustomValidity('');
-
-        submitButton.disabled = false;
-        submitButton.textContent = "Send Message";
-        
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert(
-            "Failed to send message. Please try again later."
-        );
-
-        submitButton.disabled = false;
-        submitButton.textContent = "Send Message";
+        // Auto-reply me response error aaye to
+        // poore form ko failed nahi batayenge
+        console.warn("Auto-reply response error:", autoReplyError);
 
     }
+
+        // alert(
+        //     "Thanks for contacting! Your message has been sent successfully."
+        // );
+    clearTimeout(waitMessageTimer);
+
+    if (successPopup) {
+        successPopup.classList.add("show");
+    }
+
+    form.reset();
+
+    nameInput.setCustomValidity("");
+    emailInput.setCustomValidity("");
+    contactInput.setCustomValidity("");
+
+} catch (mainEmailError) {
+
+    clearTimeout(waitMessageTimer);
+
+    console.error("Main email failed:", mainEmailError);
+
+    if (errorPopup) {
+        errorPopup.classList.add("show");
+    }
+
+} finally {
+
+    clearTimeout(waitMessageTimer);
+
+    submitButton.disabled = false;
+    submitButton.textContent = "Send Message";
+
+}
 
 });
 
@@ -187,3 +209,21 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         menuBtn.textContent = "☰";
     });
 });
+
+if (closePopup && successPopup) {
+
+    closePopup.addEventListener("click", () => {
+        successPopup.classList.remove("show");
+    });
+
+}
+
+if (closeErrorPopup && errorPopup) {
+
+    closeErrorPopup.addEventListener("click", () => {
+
+        errorPopup.classList.remove("show");
+
+    });
+
+}
