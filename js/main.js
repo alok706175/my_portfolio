@@ -162,24 +162,3 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         menuBtn.textContent = "☰";
     });
 });
-
-// ============================
-// HIDE SOCIALS BUTTON ON SCROLL DOWN & SHOW SOCIALS BUTTON ON SCROLL UP (SHOW ONLY AT TOP)
-// ============================
-
-
-const floatingSocials = document.querySelector(".floating-socials");
-
-window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
-
-    // Agar scroll position 10px ya usse kam hai (yani user bilkul top par hai)
-    if (currentScrollY <= 10) { 
-        floatingSocials.style.opacity = "1";
-        floatingSocials.style.pointerEvents = "auto";
-    } else {
-        // Agar page thoda sa bhi niche scroll hua hai, to buttons chhupe rahenge
-        floatingSocials.style.opacity = "0";
-        floatingSocials.style.pointerEvents = "none";
-    }
-});
