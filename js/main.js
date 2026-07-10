@@ -29,7 +29,7 @@ const form = document.getElementById("contactForm");
 
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
-const contactInput = document.getElementById("contact");
+const contactInput = document.getElementById("phone");
 
 // 1. Name Validation
 if (nameInput) {
