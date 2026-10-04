@@ -2,393 +2,878 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfolio of Alok Kumar - Frontend and Full Stack Developer skilled in HTML, CSS, JavaScript, React, Java, Spring Boot, MySQL and modern web technologies.">
+        content="Portfolio of Alok Kumar - Full Stack & Frontend Developer specializing in Java, Spring Boot, React, JavaScript, and MySQL. Computer Science Engineering undergraduate building scalable, high-performance web applications.">
+    <meta name="keywords"
+        content="Alok Kumar, Full Stack Developer, Java Developer, Spring Boot, React Developer, Web Developer Portfolio, Frontend Engineer, Haridwar, FET Gurukula Kangri">
+    <meta name="author" content="Alok Kumar">
 
-    <title>Alok Kumar | Portfolio</title>   
+    <!-- Open Graph / Meta for Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Alok Kumar | Full Stack & Frontend Developer">
+    <meta property="og:description"
+        content="Explore the projects, skills, and portfolio of Alok Kumar — Full Stack Developer specializing in Java, Spring Boot, React, and modern web architectures.">
+    <meta property="og:image" content="images/IMG_20230711_13271111111.jpg">
 
-    <!-- favicon linked start here -->
-    
-    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon_io/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon_io/android-chrome-512x512.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/x-icon" href="/images/favicon_io/favicon.ico">
-    <link rel="manifest" href="/images/favicon_io/site.webmanifest">
+    <title>Alok Kumar | Full Stack & Frontend Developer</title>
 
-        <!-- favicon linked end here -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon_io/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/favicon_io/android-chrome-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon_io/favicon.ico">
+    <link rel="manifest" href="images/favicon_io/site.webmanifest">
 
+    <!-- Modern Typography: Plus Jakarta Sans, Outfit & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-    <!-- linked css files start here-->
+    <!-- FontAwesome & Devicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
 
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animation.css">
     <link rel="stylesheet" href="css/responsive.css">
-
-    <!-- linked css files end here -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- social media button start here-->
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- social media button end here -->
-
 </head>
 
 <body>
+    <!-- Interactive Ambient Background Canvas -->
+    <canvas id="ambientCanvas"></canvas>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
 
-    <!-- Navbar -->
-
-    <header>
-
-        <nav>
-
-            <a href="#home" class="logo">
-                Alok Kumar
+    <!-- Header & Navigation -->
+    <header id="siteHeader">
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="#home" class="logo" id="brandLogo">
+                <span class="logo-code">&lt; </span> alok<span class="logo-accent">.dev</span><span class="logo-code">
+                    /&gt;</span>
             </a>
 
-            <ul class="nav-links">
-
-                <li><a href="#home">Home</a></li>
-
-                <li><a href="#about">About</a></li>
-
-                <li><a href="#skills">Skills</a></li>
-
-                <li><a href="#projects">Projects</a></li>
-
-                <li><a href="#contact">Contact</a></li>
-
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-item active"><i class="fa-solid fa-house-chimney nav-icon"></i> Home</a>
+                </li>
+                <li><a href="#about" class="nav-item"><i class="fa-solid fa-user nav-icon"></i> About</a></li>
+                <li><a href="#skills" class="nav-item"><i class="fa-solid fa-code nav-icon"></i> Skills</a></li>
+                <li><a href="#journey" class="nav-item"><i class="fa-solid fa-graduation-cap nav-icon"></i>
+                        Education</a></li>
+                <li><a href="#contact" class="nav-item"><i class="fa-solid fa-paper-plane nav-icon"></i> Contact</a>
+                </li>
             </ul>
 
-            <div class="menu-btn">
-                ☰
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-sm btn-glow hide-on-mobile">
+                    <span>Hire Me</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <button class="menu-btn" id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
-
         </nav>
-
     </header>
 
-    <!-- Hero Section -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="pulse-dot"></span>
+                        <span>Available for Opportunities &amp; Internships</span>
+                    </div>
 
-    <section class="hero" id="home">
-    
-        <div class="hero-content">
-    
-            <h3>Hello, I'm</h3>
-    
-            <h1>Alok Kumar</h1>
-    
-            <h2>Frontend & Full Stack Developer</h2>
-    
-            <p>
-                Passionate Frontend and Full Stack Developer focused on building responsive, modern, and user-friendly web
-                applications using HTML, CSS, JavaScript, React, Java, Spring Boot, and MySQL.
-            </p>
-    
-            <div class="hero-buttons">
-    
-                <a href="#contact" class="btn">
-                    Contact Me
-                </a>
-    
-                <a href="#projects" class="btn btn-outline">
-                    View Projects
-                </a>
-    
-                <a href="resume/Alok_Kumar_Resume.pdf" class="btn" download>
-                    Download Resume
-                </a>
-    
-            </div>
+                    <h3 class="hero-greeting">Hi, I'm</h3>
+                    <h1 class="hero-name">Alok Kumar</h1>
+                    <div class="typing-container">
+                        <span class="typing-prefix">I am a </span>
+                        <span class="typed-text" id="typedText">Full Stack Developer</span>
+                        <span class="cursor">&nbsp;</span>
+                    </div>
 
-            <div class="reach-at">
-                    
-                    <!-- <h3>Reach at</h3> -->
-    
-                    <!-- social media buttons start here-->
-    
-                    <div class="floating-socials">
-    
-                        <a href="https://www.linkedin.com/in/alok-kumar-502008308" target="_blank" rel="noopener noreferrer"
-                            class="social-btn linkedin" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
+                    <p class="hero-description">
+                        Passionate Full Stack &amp; Frontend Developer and 3rd Year B.Tech CSE student at
+                        <strong class="highlight-text">Gurukula Kangri University</strong>.
+                        Dedicated to engineering responsive, scalable, and modern digital experiences with
+                        <strong class="highlight-text">Java, Spring Boot, React, JavaScript</strong>, and <strong
+                            class="highlight-text">MySQL</strong>.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#skills" class="btn btn-primary" id="heroViewSkills">
+                            <span>Explore Skills</span>
+                            <i class="fa-solid fa-arrow-right"></i>
                         </a>
-    
-                        <a href="https://github.com/alok706175" target="_blank" rel="noopener noreferrer"
-                            class="social-btn github" title="GitHub">
-                            <i class="fab fa-github"></i>
+                        <a href="#contact" class="btn btn-outline" id="heroContact">
+                            <span>Get in Touch</span>
+                            <i class="fa-regular fa-paper-plane"></i>
                         </a>
-    
-                        <a href="https://www.instagram.com/alok_kumar_official" target="_blank" rel="noopener noreferrer"
-                            class="social-btn instagram" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-    
-                        <a href="https://twitter.com/alok_kumar_70" target="_blank" rel="noopener noreferrer"
-                            class="social-btn twitter-x" title="X (Twitter)">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-    
-                        <a href="https://threads.com/alok_kumar_official" target="_blank" rel="noopener noreferrer"
-                            class="social-btn threads" title="Threads">
-                            <i class="fa-brands fa-threads"></i>
+                        <a href="resume/Alok_Kumar_Resume.pdf" class="btn btn-glass" download id="heroDownloadResume"
+                            title="Download Alok Kumar's Resume">
+                            <span>Resume</span>
+                            <i class="fa-solid fa-download"></i>
                         </a>
                     </div>
-    
-                    <!-- social media button end here -->
-    
+
+                    <!-- Social Handles -->
+                    <div class="hero-social-block">
+                        <span class="social-label">Connect with me:</span>
+                        <div class="floating-socials">
+                            <a href="https://www.linkedin.com/in/alok-kumar-502008308" target="_blank"
+                                rel="noopener noreferrer" class="social-btn linkedin" data-tooltip="LinkedIn"
+                                aria-label="Alok Kumar's LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/alok706175" target="_blank" rel="noopener noreferrer"
+                                class="social-btn github" data-tooltip="GitHub" aria-label="Alok Kumar's GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com/alok_kumar_70" target="_blank" rel="noopener noreferrer"
+                                class="social-btn twitter-x" data-tooltip="X (Twitter)"
+                                aria-label="Alok Kumar's Twitter">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/alok_kumar_official" target="_blank"
+                                rel="noopener noreferrer" class="social-btn instagram" data-tooltip="Instagram"
+                                aria-label="Alok Kumar's Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://threads.com/alok_kumar_official" target="_blank" rel="noopener noreferrer"
+                                class="social-btn threads" data-tooltip="Threads" aria-label="Alok Kumar's Threads">
+                                <i class="fa-brands fa-threads"></i>
+                            </a>
+                            <a href="mailto:alokkumar706175@gmail.com" class="social-btn email" data-tooltip="Email"
+                                aria-label="Send email to Alok Kumar">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-    
-        </div>
-    
-        <div class="hero-image">
-    
-            <img src="images/IMG_20230711_13271111111.jpg" alt="Alok Kumar">
-    
-        </div>
-    
-    </section>
 
-    <!-- About -->
-
-    <section id="about" class="section">
-
-        <h2 class="section-title">
-            About Me
-        </h2>
-
-        <div class="about-container">
-
-            <p>
-
-                I am Alok Kumar, a 3rd Year B.Tech CSE student from
-                Faculty of Engineering & Technology, Gurukula Kangri University.
-
-               I am a passionate Full Stack Developer. I enjoy building responsive web applications and continuously improving my skills in Java, Spring Boot, React, JavaScript, MySQL, and modern web technologies. I am always excited to learn new technologies and work on real-world projects.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- Skills -->
-
-    <section id="skills" class="section">
-
-        <h2 class="section-title">
-            Skills
-        </h2>
-
-        <div class="skills-category">
-        
-            <h3 class="category-title">Web Development</h3>
-        
-            <br/>
-
-            <div class="skills-container">
-        
-                <div class="skill-card">HTML</div>
-        
-                <div class="skill-card">CSS</div>
-        
-                <div class="skill-card">JavaScript</div>
-        
-                <div class="skill-card">React</div>
-        
-                <div class="skill-card">Java</div>
-        
-                <div class="skill-card">Spring Framework </div>
-        
-                <div class="skill-card">Spring Boot </div>
-        
-                <div class="skill-card">RESTful APIs </div>
-        
-                <div class="skill-card">MySQL</div>
-        
-                <div class="skill-card">Hibernate</div>
-        
-                <div class="skill-card">Git</div>
-        
-                <div class="skill-card">Maven</div>
-                
-                <br/>
-        
+                <!-- Hero Profile Visual -->
+                <div class="hero-visual">
+                    <div class="profile-card-wrapper">
+                        <div class="profile-glow"></div>
+                        <div class="profile-image-container">
+                            <img src="images/IMG_20230711_13271111111.jpg" alt="Alok Kumar - Full Stack Developer"
+                                class="profile-photo" id="heroPhoto">
+                            <div class="profile-overlay-shine"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        
-        </div>
-        
-        <div class="skills-category">
-        
-            <h3 class="category-title">Programming Languages</h3>
 
-            <br/>
-        
-            <div class="skills-container">
+            <!-- Scroll Down Indicator -->
+            <a href="#about" class="scroll-down-indicator" aria-label="Scroll down to About section">
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+                <span class="scroll-text">Scroll Down</span>
+            </a>
+        </section>
 
-                <div class="skill-card">Java</div>
-        
-                <div class="skill-card">Python</div>
-        
-                <div class="skill-card">C</div>
-        
+        <!-- Metrics / Stats Ribbon -->
+        <section class="stats-ribbon">
+            <div class="stats-container">
+                <div class="stat-item" data-target="3">
+                    <div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="stat-info">
+                        <h4 class="stat-number"><span class="counter">3</span>rd Year</h4>
+                        <p class="stat-label">B.Tech Computer Science</p>
+                    </div>
+                </div>
+                <div class="stat-item" data-target="15">
+                    <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <div class="stat-info">
+                        <h4 class="stat-number"><span class="counter">15</span>+</h4>
+                        <p class="stat-label">Tech Skills &amp; Tools</p>
+                    </div>
+                </div>
+                <div class="stat-item" data-target="10">
+                    <div class="stat-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                    <div class="stat-info">
+                        <h4 class="stat-number"><span class="counter">10</span>+</h4>
+                        <p class="stat-label">Projects &amp; Prototypes</p>
+                    </div>
+                </div>
+                <div class="stat-item" data-target="100">
+                    <div class="stat-icon"><i class="fa-solid fa-code-commit"></i></div>
+                    <div class="stat-info">
+                        <h4 class="stat-number"><span class="counter">100</span>%</h4>
+                        <p class="stat-label">Commitment to Code</p>
+                    </div>
+                </div>
             </div>
-        
-        </div>
+        </section>
 
-    </section>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <span class="section-tag">Get To Know Me</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="title-underline"></div>
+            </div>
 
-    <!-- Projects -->
+            <div class="about-grid">
+                <div class="about-narrative glass-panel">
+                    <div class="panel-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">alok.dev</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="about-lead">
+                            Hello! I'm <strong class="highlight-text">Alok Kumar</strong>, a tech enthusiast and
+                            3rd Year B.Tech Computer Science &amp; Engineering undergraduate at the
+                            <strong class="highlight-text">Faculty of Engineering &amp; Technology, Gurukula Kangri
+                                University</strong>.
+                        </p>
+                        <p>
+                            I specialize in end-to-end web engineering, bridging elegant frontend interfaces with
+                            robust,
+                            enterprise-grade backend services. My day-to-day stack revolves around
+                            <span class="tag-pill">Java</span>, <span class="tag-pill">Spring Boot</span>,
+                            <span class="tag-pill">React</span>, <span class="tag-pill">JavaScript ES6+</span>,
+                            and <span class="tag-pill">MySQL</span>.
+                        </p>
+                        <p>
+                            I have a strong passion for solving real-world challenges through clean code, structured
+                            APIs,
+                            and user-centered designs. Whether developing responsive web applications, configuring
+                            RESTful microservices,
+                            or optimizing database schema performance, I continuously strive for excellence.
+                        </p>
 
-    <section id="projects" class="section">
+                        <div class="about-cta-row">
+                            <a href="#contact" class="btn btn-primary btn-sm">
+                                <span>Let's Build Together</span>
+                                <i class="fa-solid fa-handshake"></i>
+                            </a>
+                            <a href="https://github.com/alok706175" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-outline btn-sm">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub Activity</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-        <h2 class="section-title">
-            Projects
-        </h2>
+                <!-- Quick Info Cards -->
+                <div class="about-details-grid">
+                    <div class="info-card glass-panel" data-tilt>
+                        <div class="info-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="info-content">
+                            <h4>Education</h4>
+                            <p class="info-val">B.Tech CSE (3rd Year)</p>
+                            <span class="info-sub">Gurukula Kangri University</span>
+                        </div>
+                    </div>
 
-        <div class="project-container">
+                    <div class="info-card glass-panel" data-tilt>
+                        <div class="info-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <div class="info-content">
+                            <h4>Specialization</h4>
+                            <p class="info-val">Full Stack Web Dev</p>
+                            <span class="info-sub">Java, Spring Boot &amp; React</span>
+                        </div>
+                    </div>
 
-            <div class="project-card">
+                    <div class="info-card glass-panel" data-tilt>
+                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="info-content">
+                            <h4>Location</h4>
+                            <p class="info-val">Haridwar, India</p>
+                            <span class="info-sub">Open to Remote / Relocation</span>
+                        </div>
+                    </div>
 
-                <h3>Portfolio Website</h3>
+                    <div class="info-card glass-panel" data-tilt>
+                        <div class="info-icon"><i class="fa-solid fa-briefcase"></i></div>
+                        <div class="info-content">
+                            <h4>Availability</h4>
+                            <p class="info-val text-success">Open for Internships</p>
+                            <span class="info-sub">Full-time &amp; Project Roles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <p>
-                    Responsive personal portfolio website.
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="section-header">
+                <span class="section-tag">Technical Competencies</span>
+                <h2 class="section-title">Skills &amp; Technologies</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">
+                    A curated toolkit of languages, frameworks, databases, and developer utilities that I use to turn
+                    ideas into reality.
                 </p>
-
             </div>
 
-            <div class="project-card">
+            <!-- Filter Categories -->
+            <div class="skills-filter-bar">
+                <button class="filter-btn active" data-filter="all">All Skills</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+                <button class="filter-btn" data-filter="backend">Backend &amp; Languages</button>
+                <button class="filter-btn" data-filter="database">Databases &amp; Tools</button>
+            </div>
 
-                <h3>Weather App</h3>
+            <!-- Skills Grid -->
+            <div class="skills-grid" id="skillsGrid">
+                <!-- Frontend -->
 
-                <p>
-                    Weather application using API.
+                <div class="skill-card glass-panel" data-category="frontend">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-html5-plain colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>HTML5</h3>
+                        <span class="skill-badge">Semantic Web</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="frontend">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-css3-plain colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>CSS3 &amp; Modern UI</h3>
+                        <span class="skill-badge">Responsive Design</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="frontend">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-javascript-plain colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>JavaScript (ES6+)</h3>
+                        <span class="skill-badge">Core Frontend</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="frontend">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-react-original colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>React</h3>
+                        <span class="skill-badge">Frontend Library</span>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+                <!-- Backend & Languages -->
+                <div class="skill-card glass-panel" data-category="backend">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-java-plain colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>Java</h3>
+                        <span class="skill-badge">Primary Language</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="backend">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-spring-original colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>Spring Boot</h3>
+                        <span class="skill-badge">Backend Framework</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="backend">
+                    <div class="skill-icon-wrap">
+                        <i class="fa-solid fa-network-wired text-cyan"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>RESTful APIs</h3>
+                        <span class="skill-badge">Web Services</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="backend">
+                    <div class="skill-icon-wrap">
+                        <i class="fa-solid fa-server text-indigo"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>Spring Framework</h3>
+                        <span class="skill-badge">Architecture</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="backend">
+                    <div class="skill-icon-wrap">
+                        <i class="fa-solid fa-database text-purple"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>Hibernate &amp; JPA</h3>
+                        <span class="skill-badge">ORM / Persistence</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="backend">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-python-plain colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>Python</h3>
+                        <span class="skill-badge">Scripting &amp; Logic</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="backend">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-c-plain colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>C Language</h3>
+                        <span class="skill-badge">Fundamentals</span>
+                    </div>
+
+                </div>
+
+                <!-- Database & Tools -->
+                <div class="skill-card glass-panel" data-category="database">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-mysql-plain colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>MySQL</h3>
+                        <span class="skill-badge">Relational Database</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="database">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-git-plain colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>Git &amp; GitHub</h3>
+                        <span class="skill-badge">Version Control</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="database">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-maven-plain colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>Apache Maven</h3>
+                        <span class="skill-badge">Build &amp; Dependency</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card glass-panel" data-category="database">
+                    <div class="skill-icon-wrap">
+                        <i class="devicon-vscode-plain colored"></i>
+                    </div>
+                    <div class="skill-info">
+                        <h3>VS Code &amp; IntelliJ</h3>
+                        <span class="skill-badge">Development IDEs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Academic Journey -->
+        <section id="journey" class="section">
+            <div class="section-header">
+                <span class="section-tag">Academic Background</span>
+                <h2 class="section-title">Education &amp; Journey</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">
+                    The educational milestones and continuous learning experiences shaping my journey as an engineer.
                 </p>
-
             </div>
 
-            <div class="project-card">
+            <div class="timeline-container">
 
-                <h3>Student Management System</h3>
+                <!-- Timeline Item 1: 10th Class -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="timeline-card glass-panel" data-tilt>
+                        <div class="timeline-header-wrap">
+                            <span class="timeline-badge"><i class="fa-regular fa-calendar-check"></i> Session : 2019 -
+                                2020</span>
+                            <span class="timeline-status-pill completed"><i class="fa-solid fa-circle-check"></i>
+                                Completed • 2020</span>
+                        </div>
+                        <h3 class="timeline-title">Secondary School Examination (10th Class)</h3>
+                        <div class="timeline-meta-chips">
+                            <span class="timeline-meta-chip"><i class="fa-solid fa-school"></i> Sunshine Prep. High
+                                School</span>
+                            <span class="timeline-meta-chip"><i class="fa-solid fa-award"></i> CBSE Board</span>
+                            <span class="timeline-meta-chip"><i class="fa-solid fa-location-dot"></i> Muzaffarpur,
+                                Bihar</span>
+                        </div>
+                        <p class="timeline-desc">
+                            Completed Secondary School examination under the Central Board of Secondary Education (CBSE)
+                            with academic distinction. Developed deep foundational competence in mathematics, science,
+                            and computer literacy while cultivating logical and analytical thinking.
+                        </p>
+                        <ul class="timeline-highlights">
+                            <li>Built strong conceptual foundations in Mathematics (Algebra, Geometry) and Physical
+                                Sciences.</li>
+                            <li>Early exposure to Computer Science basics, IT fundamentals, and algorithmic
+                                problem-solving.</li>
+                            <li>Active participant in school-level science symposiums, academic quizzes, and logical
+                                reasoning contests.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Science &amp; Technology</span>
+                            <span>Mathematics</span>
+                            <span>Computer Basics</span>
+                            <span>English &amp; Communication</span>
+                            <span>Logical Reasoning</span>
+                            <span>CBSE Curriculum</span>
+                        </div>
+                    </div>
+                </div>
 
-                <p>
-                    Java based management project.
+                <!-- Timeline Item 2: 12th Class -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="timeline-card glass-panel" data-tilt>
+                        <div class="timeline-header-wrap">
+                            <span class="timeline-badge"><i class="fa-regular fa-calendar-check"></i> Session : 2021 -
+                                2022</span>
+                            <span class="timeline-status-pill completed"><i class="fa-solid fa-circle-check"></i>
+                                Completed • 2022</span>
+                        </div>
+                        <h3 class="timeline-title">Senior Secondary Examination (12th Class - Science PCM)</h3>
+                        <div class="timeline-meta-chips">
+                            <span class="timeline-meta-chip"><i class="fa-solid fa-building-columns"></i> H.N. High
+                                School, Chandauli</span>
+                            <span class="timeline-meta-chip"><i class="fa-solid fa-award"></i> BSEB Board</span>
+                            <span class="timeline-meta-chip"><i class="fa-solid fa-flask-vial"></i> Stream: PCM
+                                (Physics, Chemistry, Maths)</span>
+                            <span class="timeline-meta-chip"><i class="fa-solid fa-location-dot"></i> Sitamarhi,
+                                Bihar</span>
+                        </div>
+                        <p class="timeline-desc">
+                            Completed Senior Secondary education with pure Science specialization majoring in Physics,
+                            Chemistry, and Advanced Mathematics (PCM). Cultivated quantitative rigor, analytical
+                            problem-solving, and abstract mathematical modeling essential for engineering disciplines.
+                        </p>
+                        <ul class="timeline-highlights">
+                            <li>Mastered core mathematical concepts including Differential &amp; Integral Calculus,
+                                Vector Algebra, and Coordinate Geometry.</li>
+                            <li>Acquired strong fundamentals in Classical Mechanics, Electromagnetism, Optics, and
+                                Physical Chemistry.</li>
+                            <li>Hands-on practical laboratory work applying empirical methodologies and systematic
+                                scientific problem analysis.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Higher Mathematics</span>
+                            <span>Calculus &amp; Vectors</span>
+                            <span>Classical Physics</span>
+                            <span>Organic &amp; Physical Chemistry</span>
+                            <span>Analytical Problem Solving</span>
+                            <span>BSEB Science</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3: B.Tech CSE -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="timeline-card glass-panel" data-tilt>
+                        <div class="timeline-header-wrap">
+                            <span class="timeline-badge"><i class="fa-regular fa-calendar-check"></i> Session : 2024 -
+                                2028</span>
+                            <span class="timeline-status-pill pursuing">Pursuing </span>
+                        </div>
+                        <h3 class="timeline-title">Bachelor of Technology (B.Tech) - Computer Science &amp; Engineering
+                        </h3>
+                        <div class="timeline-meta-chips">
+                            <span class="timeline-meta-chip"><i class="fa-solid fa-university"></i> Faculty of
+                                Engineering &amp; Technology (FET)</span>
+                            <span class="timeline-meta-chip"><i class="fa-solid fa-building-columns"></i> Gurukula
+                                Kangri (Deemed to be University)</span>
+                            <span class="timeline-meta-chip"><i class="fa-solid fa-location-dot"></i> Haridwar,
+                                Uttarakhand</span>
+                        </div>
+                        <p class="timeline-desc">
+                            Currently in 3rd Year pursuing Bachelor of Technology in Computer Science &amp; Engineering.
+                            Cultivating deep technical competence in scalable software engineering, core data
+                            structures, algorithms, and full-stack web architectures.
+                        </p>
+                        <ul class="timeline-highlights">
+                            <li>Focusing on Java backend ecosystems (Spring Boot, Hibernate, REST APIs) and modern
+                                frontend architectures.</li>
+                            <li>Comprehensive coursework in Data Structures &amp; Algorithms, DBMS, Operating Systems,
+                                Computer Networks, and System Design.</li>
+                            <li>Actively designing and building real-world software applications and practical
+                                enterprise solutions.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Data Structures &amp; Algorithms</span>
+                            <span>OOPs with Java</span>
+                            <span>Database Management (DBMS)</span>
+                            <span>Spring Boot &amp; REST APIs</span>
+                            <span>Web Technologies</span>
+                            <span>Computer Networks</span>
+                            <span>Operating Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-header">
+                <span class="section-tag">Let's Connect</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">
+                    Have a project in mind, an internship opportunity, or just want to chat about tech? Feel free to
+                    drop a message!
                 </p>
-
             </div>
 
+            <div class="contact-wrapper">
+                <!-- Contact Info Cards -->
+                <div class="contact-info-col">
+                    <div class="contact-card glass-panel">
+                        <div class="contact-icon email-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <span class="contact-type">Email Address</span>
+                            <a href="mailto:alokkumar706175@gmail.com"
+                                class="contact-link">alokkumar706175@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card glass-panel">
+                        <div class="contact-icon location-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <div class="contact-details">
+                            <span class="contact-type">Location</span>
+                            <p class="contact-value">Haridwar, Uttarakhand, India</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Social Icons inside Contact -->
+                    <div class="contact-socials-box glass-panel">
+                        <h4>Follow &amp; Reach Out</h4>
+                        <div class="floating-socials">
+                            <a href="https://www.linkedin.com/in/alok-kumar-502008308" target="_blank"
+                                rel="noopener noreferrer" class="social-btn linkedin" data-tooltip="LinkedIn"
+                                aria-label="LinkedIn Profile">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/alok706175" target="_blank" rel="noopener noreferrer"
+                                class="social-btn github" data-tooltip="GitHub" aria-label="GitHub Profile">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com/alok_kumar_70" target="_blank" rel="noopener noreferrer"
+                                class="social-btn twitter-x" data-tooltip="X (Twitter)" aria-label="X Profile">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/alok_kumar_official" target="_blank"
+                                rel="noopener noreferrer" class="social-btn instagram" data-tooltip="Instagram"
+                                aria-label="Instagram Profile">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://threads.com/alok_kumar_official" target="_blank" rel="noopener noreferrer"
+                                class="social-btn threads" data-tooltip="Threads" aria-label="Threads Profile">
+                                <i class="fa-brands fa-threads"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-col">
+                    <form id="contactForm" class="glass-panel" novalidate>
+                        <div class="form-header">
+                            <h3>Send Me a Direct Message</h3>
+                            <p>Fill out the form below and I will get back to you as soon as possible.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-regular fa-user input-icon"></i>
+                                <input type="text" id="name" name="from_name" placeholder="Enter Your Full Name"
+                                    required autocomplete="name">
+                            </div>
+                            <span class="validation-message" id="nameError"></span>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address <span
+                                        class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-envelope input-icon"></i>
+                                    <input type="email" id="email" name="from_email" placeholder="abc@example.com"
+                                        required autocomplete="email">
+                                </div>
+                                <span class="validation-message" id="emailError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number <span
+                                        class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="phone" name="contact" placeholder="10-digit mobile number"
+                                        pattern="[0-9]{10}" maxlength="10" inputmode="numeric" required
+                                        autocomplete="tel">
+                                </div>
+                                <span class="validation-message" id="phoneError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message <span
+                                    class="optional">(Optional)</span></label>
+                            <div class="input-wrapper textarea-wrapper">
+                                <i class="fa-regular fa-comment-dots input-icon"></i>
+                                <textarea id="message" name="message" rows="4"
+                                    placeholder="Hi Alok, I'd like to discuss a project or opportunity..."></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                            <span class="btn-text">Send Message</span>
+                            <i class="fa-solid fa-paper-plane btn-icon-arrow"></i>
+                            <span class="spinner" id="btnSpinner"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Modal Popup -->
+    <div id="successPopup" class="popup" role="dialog" aria-modal="true">
+        <div class="popup-backdrop"></div>
+        <div class="popup-content glass-panel success-glow">
+            <div class="popup-icon success-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2>Message Sent!</h2>
+            <p>Thank you for reaching out! Your message has been sent successfully. An automatic confirmation has been
+                sent to your email.</p>
+            <button id="closePopup" class="btn btn-primary">Got it, Thanks!</button>
         </div>
-
-    </section>
-
-    <!-- Contact -->
-
-    <section id="contact" class="section">
-
-        <h2 class="section-title">
-            Contact Me
-        </h2>
-
-        <form id="contactForm">
-
-            <input
-                type="text"
-                id="name"
-                placeholder="Enter Your Name"
-                required
-            >
-
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter Your Email"
-                required
-            >
-
-            <input
-                type="tel"
-                id="phone"
-                placeholder="Enter Your Contact Number"
-                pattern="[0-9]{10}"
-                maxlength="10"
-                inputmode="numeric"
-                required
-            >
-
-            <textarea
-                id="message"
-                rows="2"
-                placeholder="Your Message"
-            
-            ></textarea>
-
-            <button type="submit">
-                Send Message
-            </button>
-
-        </form>
-
-    </section>
-    
-    <!-- sent message ko design kar rahe hai -->
-    <!-- Success Popup Start -->
-
-    <div id="successPopup" class="popup">
-
-        <div class="popup-content">
-
-            <p>
-                Thanks for contacting! Your message has been sent successfully.
-            </p>
-
-            <button id="closePopup">OK</button>
-
-        </div>
-
     </div>
 
-    <!-- Success Popup End -->
-
-    <!-- Failed Popup Start -->
-
-    <div id="errorPopup" class="popup">
-
-        <div class="popup-content error-popup">
-
-            <p>
-                Failed to send your message.Please try again later.
+    <!-- Error Modal Popup -->
+    <div id="errorPopup" class="popup" role="dialog" aria-modal="true">
+        <div class="popup-backdrop"></div>
+        <div class="popup-content glass-panel error-glow">
+            <div class="popup-icon error-icon">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h2>Message Failed</h2>
+            <p>Sorry, there was a temporary issue sending your message. Please try again or reach out directly at
+                <strong>alokkumar706175@gmail.com</strong>.
             </p>
-
-            <button id="closeErrorPopup">OK</button>
-
+            <button id="closeErrorPopup" class="btn btn-outline">Close</button>
         </div>
-
     </div>
 
-<!-- Failed Popup End -->
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <svg class="progress-ring" width="46" height="46">
+            <circle class="progress-ring__circle" stroke="#38bdf8" stroke-width="3" fill="transparent" r="20" cx="23"
+                cy="23" />
+        </svg>
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
-    <footer>
-        <p>&copy; 2026 Alok Kumar. All Rights Reserved.</p>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#home" class="footer-logo">
+                    <span class="logo-code">&lt;</span> alok<span class="logo-accent">.dev</span><span
+                        class="logo-code">/&gt;</span>
+                </a>
+                <p class="footer-tagline">
+                    Engineering responsive, robust, and modern web applications with Java, Spring Boot, React, and
+                    MySQL.
+                </p>
+            </div>
+
+            <div class="footer-links-group">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#journey">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social-group">
+                <h4>Social Presence</h4>
+                <div class="footer-social-icons">
+                    <a href="https://www.linkedin.com/in/alok-kumar-502008308" target="_blank" rel="noopener noreferrer"
+                        aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/alok706175" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/alok_kumar_70" target="_blank" rel="noopener noreferrer"
+                        aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/alok_kumar_official" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://threads.com/alok_kumar_official" target="_blank" rel="noopener noreferrer"
+                        aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2026 Alok Kumar. All Rights Reserved.</p>
+        </div>
     </footer>
 
-    
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
     <script src="js/config.js"></script>
-
     <script src="js/animation.js"></script>
-
     <script src="js/main.js"></script>
-
-
 </body>
 
 </html>

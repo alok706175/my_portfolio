@@ -1,115 +1,97 @@
-/* Hero Image Floating */
+/* ========================================================
+   ALOK KUMAR PORTFOLIO - MODERN ANIMATIONS & MICRO-INTERACTIONS
+   ======================================================== */
 
-.hero-image img{
-
-    /* animation: floatImage 4s ease-in-out infinite; */
-    animation: none;
-
-
+/* Scroll Reveal Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
 }
 
-@keyframes floatImage{
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-    0%{
-        transform:translateY(0px);
+/* Staggered Delay Helpers */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Subtle Floating Animation */
+@keyframes softFloat {
+    0%, 100% {
+        transform: translateY(0px);
     }
-
-    50%{
-        transform:translateY(-15px);
+    50% {
+        transform: translateY(-8px);
     }
+}
 
-    100%{
-        transform:translateY(0px);
+.floating-element {
+    animation: softFloat 4.5s ease-in-out infinite;
+}
+
+/* Glowing Border Pulse */
+@keyframes neonBorderPulse {
+    0%, 100% {
+        border-color: rgba(56, 189, 248, 0.3);
+        box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
     }
-
-}
-
-/* Fade Up Animation */
-
-.fade-up{
-
-    opacity:0;
-
-    transform:translateY(40px);
-
-    transition:all 0.8s ease;
-
-}
-
-.fade-up.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-/* Skill Hover */
-
-.skill-card{
-
-    transition:all 0.3s ease;
-
-}
-
-.skill-card:hover{
-
-    transform:translateY(-8px) scale(1.03);
-
-    box-shadow:0 10px 25px rgba(56,189,248,0.3);
-
-}
-
-/* Project Hover */
-
-.project-card{
-
-    transition:all 0.3s ease;
-
-}
-
-.project-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 10px 25px rgba(56,189,248,0.25);
-
-}
-
-/* Button Hover */
-
-.btn{
-
-    transition:all 0.3s ease;
-
-}
-
-.btn:hover{
-
-    transform:translateY(-3px);
-
-}
-
-/* Section Title Animation */
-
-.section-title{
-
-    animation: titleGlow 2s infinite alternate;
-
-}
-
-@keyframes titleGlow{
-
-    from{
-
-        text-shadow:0 0 5px #38bdf8;
-
+    50% {
+        border-color: rgba(56, 189, 248, 0.7);
+        box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
     }
+}
 
-    to{
+.neon-pulse {
+    animation: neonBorderPulse 3s infinite ease-in-out;
+}
 
-        text-shadow:0 0 20px #38bdf8;
+/* Shimmer Light Sweep on Primary Buttons */
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-25deg);
+    transition: none;
+}
 
-    }
+.btn-primary:hover::before {
+    left: 140%;
+    transition: left 0.75s ease-in-out;
+}
 
+/* Section Title Subtle Text Glow */
+.section-title {
+    background: linear-gradient(180deg, #ffffff 40%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Card Hover Elevation */
+.skill-card, .project-card, .info-card, .timeline-card {
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                border-color 0.35s ease;
+}
+
+/* Interactive Ripple for Filter Buttons */
+.filter-btn, .proj-filter-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Terminal Dots Hover Animation */
+.terminal-dots:hover .dot {
+    transform: scale(1.15);
+    transition: transform 0.2s ease;
 }
